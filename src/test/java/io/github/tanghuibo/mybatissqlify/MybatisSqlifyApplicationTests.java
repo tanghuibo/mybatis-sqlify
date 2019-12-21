@@ -23,7 +23,7 @@ class MybatisSqlifyApplicationTests {
 		request.setMybatisSql("selct * from table1 where <if test=\"name != null\"> name = #{name} </if> and value = #{value}");
 		Map<String, Object> map = new HashMap<>(2);
 		map.put("name", "Bob");
-		map.put("size", "18CM");
+		map.put("value", "180CM");
 		request.setParam(map);
 		SqlifyResponse process = sqlifyService.process(request);
 		System.out.println(process.getParam());
