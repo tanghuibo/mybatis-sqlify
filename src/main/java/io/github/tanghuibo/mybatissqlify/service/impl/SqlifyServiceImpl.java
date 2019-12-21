@@ -22,9 +22,11 @@ public class SqlifyServiceImpl implements SqlifyService {
     @Override
     public SqlifyResponse process(SqlifyRequest request) {
         try {
+            //1. 设置context
             SqlifyContext.setSqlifyRequest(request);
-            Object param = request.getParam();
-            sqlifyMapper.run(param);
+            //2. 运行mybatis的mapper
+            sqlifyMapper.run(request.getParam());
+            //3. 获取返回值
             return SqlifyContext.getSqlifyResponse();
         } finally {
             SqlifyContext.remove();

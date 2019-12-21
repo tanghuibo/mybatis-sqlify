@@ -39,14 +39,21 @@ public class SqlLogInterceptor implements Interceptor {
         BoundSql boundSql = mappedStatement.getBoundSql(parameter);
         Configuration configuration = mappedStatement.getConfiguration();
 
-        SqlifyResponse response = new SqlifyResponse();
-        response.setSqlRenderBefore(getSqlRenderBefore(boundSql));
-        response.setParam(getParam(boundSql, configuration));
-        response.setSqlRenderAfter(getSqlRenderAfter(response.getSqlRenderBefore(), response.getParam()));
-
-        SqlifyContext.setSqlifyResponse(response);
+        setSqlifyResponse(boundSql, configuration);
 
         return new ArrayList<>(0);
+    }
+
+    private void setSqlifyResponse(BoundSql boundSql, Configuration configuration) {
+        SqlifyResponse response = new SqlifyResponse();
+        //1. 获取参数替换前sql
+        response.setSqlRenderBefore(getSqlRenderBefore(boundSql));
+        //2. 获取参数
+        response.setParam(getParam(boundSql, configuration));
+        //3. 参数替换
+        response.setSqlRenderAfter(getSqlRenderAfter(response.getSqlRenderBefore(), response.getParam()));
+        //4. 设置上下文
+        SqlifyContext.setSqlifyResponse(response);
     }
 
     private String getSqlRenderAfter(String sql, List<Object> params) {

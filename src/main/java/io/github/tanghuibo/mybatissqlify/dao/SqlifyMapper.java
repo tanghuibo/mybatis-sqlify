@@ -12,7 +12,7 @@ import org.apache.ibatis.scripting.xmltags.XMLLanguageDriver;
 public interface SqlifyMapper {
 
     /**
-     * 通过 SqlProvider#getSql动态运行sql
+     * 通过 SqlProvider#run动态获取sql并运行
      * @param param
      * @return
      */
@@ -21,8 +21,14 @@ public interface SqlifyMapper {
     Object run(Object param);
 
     class SqlProvider {
+        /**
+         * 动态sql拼接
+         * @return
+         */
         public String run() {
+            //1. 从上下文中获取sql
             String sql = SqlifyContext.getSqlifyRequest().getMybatisSql();
+            //拼接sql
             return String.format("<script>%s</script>", sql);
         }
     }
