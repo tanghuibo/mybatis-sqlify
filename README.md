@@ -20,7 +20,7 @@
 - 输入的 **PARAM**
 - 点击 **RUN**
 
-![use](screenshots/use.png)
+![use](./screenshots/use.png)
 
 ## 原理
 
