@@ -10,11 +10,17 @@
 
 本工具可通过输入 Mybatis 的 **SQL** 和 **参数** 获取数据库**最终执行的 SQL**
 
+## 下载
+
+[mybatis-sqlify.jar](https://github.com/tanghuibo/mybatis-sqlify/raw/master/bin/mybatis-sqlify.jar)
+
 ## 使用
 
 - 输入 MyBatis 的 **SQL**
-- 输入的 **入参**
-- 点击运行
+- 输入的 **PARAM**
+- 点击 **RUN**
+
+![use](screenshots/use.png)
 
 ## 原理
 
