@@ -24,6 +24,6 @@ public class BizResultBuilder {
      * @return
      */
     public static BizResult buildFailed(String message) {
-        return new BizResult<>(true, message, null);
+        return new BizResult<>(false, message, null);
     }
 }

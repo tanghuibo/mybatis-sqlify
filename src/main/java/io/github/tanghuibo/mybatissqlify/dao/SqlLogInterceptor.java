@@ -59,7 +59,8 @@ public class SqlLogInterceptor implements Interceptor {
     private String getSqlRenderAfter(String sql, List<Object> params) {
 
         for (Object param : params) {
-            sql = sql.replaceFirst("\\?", Matcher.quoteReplacement(getMysqlValue(param)));
+            sql = sql.replaceFirst("\\?", Matcher.quoteReplacement(getMysqlValue(param)
+                    .replaceAll("\n", "\\\\n")));
         }
         return sql;
     }
