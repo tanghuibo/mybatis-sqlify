@@ -12,7 +12,7 @@
 
 ## 下载
 
-[mybatis-sqlify.jar](https://github.com/tanghuibo/mybatis-sqlify/raw/master/bin/mybatis-sqlify.jar)
+[mybatis-sqlify-1.0.0.jar](https://raw.githubusercontent.com/tanghuibo/package/master/mybatis-sqlify/mybatis-sqlify-1.0.0.jar)
 
 ## 使用
 
